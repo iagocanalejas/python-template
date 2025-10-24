@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "library"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+license = { file = "LICENSE.md" }
+authors = [{ name = "Iago Santos" }]
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only"
+]
+dependencies = [
+  "pyutils @ git+https://github.com/iagocanalejas/pyutils.git@master",
+]
+
+[project.scripts]
+autocana = "library.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["library*"]
+
+[tool.setuptools.package-data]
+autocana = ["templates/*"]
+
+[tool.pyright]
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+deprecateTypingAliases = true
+exclude = [
+	"**/build",
+	"**/dist",
+	"**/out",
+	"**/venv",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["library"]
+omit = [
+	"**/__init__.py",
+	"**/_protocol.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+exclude_also = [
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+	"logger.*",
+    ]
