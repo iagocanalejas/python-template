@@ -2,5 +2,5 @@ import unittest
 
 
 class TestDummy(unittest.TestCase):
-    def test_dummy(self):
+    def test_dummy(self) -> None:
         self.assertTrue(True)
