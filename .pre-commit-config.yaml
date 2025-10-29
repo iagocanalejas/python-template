@@ -38,3 +38,5 @@ repos:
       - id: mypy
         args:
           - --config-file=pyproject.toml
+        additional_dependencies:
+          - git+https://github.com/iagocanalejas/pyutils.git@master

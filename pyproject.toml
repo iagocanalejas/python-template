@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-autocana = "library.main:main"
+library = "library.main:main"
 
 [tool.setuptools]
 include-package-data = true
@@ -29,7 +29,7 @@ where = ["."]
 include = ["library*"]
 
 [tool.setuptools.package-data]
-autocana = ["templates/*"]
+library = ["templates/*", "py.typed"]
 
 [tool.pyright]
 strictListInference = true
