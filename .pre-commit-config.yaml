@@ -15,7 +15,7 @@ repos:
       - id: check-shebang-scripts-are-executable
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v3.1.0
+    rev: v3.2.0
     hooks:
       - id: setup-cfg-fmt
 
@@ -23,17 +23,19 @@ repos:
     rev: v3.21.0
     hooks:
       - id: pyupgrade
-        args: [--py312-plus]
+        args: [--py313-plus]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.2
+    rev: v0.15.11
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix]
+        types_or: [python, pyi]
+      - id: ruff-format
         types_or: [python, pyi]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.18.2
+    rev: v1.20.1
     hooks:
       - id: mypy
         args:
